@@ -1,0 +1,107 @@
+<html>
+<head>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+.container{
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+.calc{
+box-shadow:6px 6px 13px pink,
+          6px 6px 13px blue;
+border-radius:28px;
+display:grid;
+grid-template-columns:repeat(4,66px);
+}
+input[type=text]{
+grid-column:span 4;
+height:68px;
+width:258px;
+box-shadow: inset -6px -6px 13px #fff,
+		inset 6px 6px 13px rgba(0,0,0,.16);
+background-color:#ecf0f3;
+border-radius:32px;
+border:none;
+color:rgb(26,25,25);
+text-align:end;
+margin:40px 0px 30px 0px;
+padding:20px;
+font-size:40px;
+}
+button{
+background-color:#ecf0f3;
+border:none;
+border-radius:50%;
+width:50px;
+height:50px;
+margin:10px;
+box-shadow: inset 6px 6px 13px #fff,
+		6px 6px 13px rgba(0,0,0,.16);
+font-weight:bold;
+font-size:20px;
+}
+.equal{
+width:120px;
+border-radius:42px;
+background-color:#ecf0f3;
+box-shadow: inset 6px 6px 13px #fff,
+		6px 6px 13px rgba(0,0,0,.16);
+}
+</style>
+
+</head>
+    <body>
+        
+<div class="container">
+<div class="calc">
+	<input type="text"id="res"placeholder="0"/>
+	<button onclick="clr()">AC</button>
+	<button onclick="del()">DEL</btton>
+	<button onclick="display('%')">%</button>
+	<button onclick="display('/')">/</button>
+	<button onclick="display('7')">7</button>
+	<button onclick="display('8')">8</button>
+	<button onclick="display('9')">9</button>
+	<button onclick="display('*')">*</button>
+	<button onclick="display('4')">4</button>
+	<button onclick="display('5')">5</button>
+	<button onclick="display('6')">6</button>
+	<button onclick="display('-')">-</button>
+	<button onclick="display('1')">1</button>
+	<button onclick="display('2')">2</button>
+	<button onclick="display('3')">3</button>
+	<button onclick="display('+')">+</button>
+	<button onclick="display('.')">.</button>
+	<button onclick="display('0')">0</button>
+	<button onclick="show('=')" class="equal">=</button>
+</div>
+</div>
+<script>
+var result=document.getElementById("res");
+function display(input){
+result.value+=input;
+}
+function show(){
+try{
+	result.value=eval(result.value)
+}
+catch(err){
+result.value="error"
+}
+}
+function clr(){
+result.value=" "
+}
+function del(){
+result.value=result.value.slice(0,-1);
+}
+</script>
+    </body>
+</html>
